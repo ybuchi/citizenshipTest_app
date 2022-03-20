@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.answer {
+  list-style-type: none;
+}
+
+.answer-hidden{
+  display: none;
+}
+
+.answer-revealed{
+  display: block;
+}

@@ -2,18 +2,18 @@ import React from "react";
 import QuestionCard from "./QuestionCard";
 import questionsData from "./data/questions"
 
-function QuestionsContainer() {
+function QuestionsContainer({testPerformance, setTestPerformance}) {
 
     const questionCard = questionsData.map((question) => <QuestionCard 
                                                             key={question.id}
-                                                            question={question}/>)
+                                                            question={question}
+                                                            testPerformance = {testPerformance}
+                                                            setTestPerformance={setTestPerformance}
+                                                         />)
 
     return(
         <>
-            <h1>This is a question</h1>
-
-                {questionCard}
-
+            {questionCard}
         </>
     )
 }
