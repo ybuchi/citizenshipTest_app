@@ -12,22 +12,24 @@ function QuestionCard({question, testPerformance, setTestPerformance}) {
     }
     return(
         <>
-        <div class="card">
-            <header class="card-header" onClick={handleRevealAnswer}>
-                Question #{question.id} - <strong>{question.question}</strong>
-            </header>
-            <div class="card-body">
-                <Answers 
-                    question={question} 
-                    isRevealed={isRevealed} 
-                    className = {answerRevealClass} 
-                    testPerformance = {testPerformance}
-                    setTestPerformance={setTestPerformance}
-                    questionId={question.id}
-                />
+            <div className = "col">
+                <div className="card card-custom">
+                    <header class="card-header card-header-custom" onClick={handleRevealAnswer}>
+                        <p>Question #{question.id}</p> 
+                        <p><strong>{question.question}</strong></p>
+                    </header>
+                    <div class="card-body">
+                        <Answers 
+                            question={question} 
+                            isRevealed={isRevealed} 
+                            className = {answerRevealClass} 
+                            testPerformance = {testPerformance}
+                            setTestPerformance={setTestPerformance}
+                            questionId={question.id}
+                        />
+                    </div>
+                </div>
             </div>
-            
-        </div>
         </>
     )
 }

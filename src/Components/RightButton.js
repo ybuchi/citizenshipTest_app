@@ -9,7 +9,7 @@ function RightButton({testPerformance, setTestPerformance}) {
     }
     
     return(
-            <button type="button" class="btn btn-success" onClick={handleCorrectAnswer}>I Got It Right!</button>
+            <button type="button" class="btn btn-primary button-custom" onClick={handleCorrectAnswer}>I Got It Right!</button>
     )
 }
 

@@ -12,10 +12,13 @@ function App() {
  
   return (
     <div className="App">
-      <h1>US Citizenship Test</h1>
-      <p># of Correct Answers: {testPerformance.correctAnswers}</p>
-      <p># of Incorrect Answers: {testPerformance.incorrectAnswers}</p>
-      <p>Questions to Review: {testPerformance.questionsToReview.map((questionId) => <span>| {questionId} |</span>)}</p>
+      <div className = "container-fluid py-5">
+        <h1>US Citizenship Test Prep</h1>
+        <span className="results"><strong>Correct Answers: </strong>{testPerformance.correctAnswers}</span>
+        <span className="results"><strong>Incorrect Answers: </strong>{testPerformance.incorrectAnswers}</span>
+        <span className="results"><strong>Questions to Review: </strong> {testPerformance.questionsToReview.map((questionId) => <span>| {questionId} |</span>)}</span>
+      </div>
+      
       <QuestionsContainer testPerformance = {testPerformance} setTestPerformance={setTestPerformance}/>
     </div>
   );

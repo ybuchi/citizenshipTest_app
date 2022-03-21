@@ -7,7 +7,7 @@ function WrongButton({testPerformance, setTestPerformance, questionId}) {
         console.log(testPerformance);
     }
     return(
-            <button type="button" class="btn btn-danger" onClick={handleIncorrectAnswer}>I Got It Wrong...</button>
+            <button type="button" class="btn btn-dark button-custom" onClick={handleIncorrectAnswer}>I Got It Wrong...</button>
     )
 }
 
