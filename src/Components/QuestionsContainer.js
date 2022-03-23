@@ -7,7 +7,7 @@ function QuestionsContainer({testPerformance, setTestPerformance}) {
 
     //Create a state that we initializeas "". It will then loop through each question and display it.
     const [quizStart, setQuizStart] = useState(false);
-    const questionCard = quizStart ? <QuestionCard /> : <QuizStartCard setQuizStart={setQuizStart}/>
+    const questionCard = quizStart ? <QuestionCard testPerformance={testPerformance} setTestPerformance={setTestPerformance} /> : <QuizStartCard setQuizStart={setQuizStart}/>
 
     return(
         <>

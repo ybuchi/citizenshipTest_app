@@ -59,3 +59,18 @@ code {
   background-color: black;
   color: white;
 }
+
+.question{
+  font-weight: bold;
+  margin: 20px 10px;;
+}
+.answer{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.answers-container{
+  border: black 1px solid;
+  margin: 20px 10px;
+  padding: 10px;
+}

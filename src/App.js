@@ -13,7 +13,9 @@ function App() {
   return (
     <div className="App">
       <Jumbotron testPerformance={testPerformance}/>
-      <QuestionsContainer testPerformance = {testPerformance} setTestPerformance={setTestPerformance}/>
+      <QuestionsContainer 
+        testPerformance = {testPerformance} 
+        setTestPerformance={setTestPerformance}/>
     </div>
   );
 }

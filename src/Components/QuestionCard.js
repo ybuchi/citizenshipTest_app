@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Answers from "./Answers";
 import questionsData from "./data/questions"
 
-function QuestionCard() {
+function QuestionCard({testPerformance, setTestPerformance}) {
     //Set state equal to the question id
     const [questionID, setQuestionID] = useState(0)
     const [answerIsRevealed, setAnswerIsRevealed] = useState(false)
@@ -11,8 +11,10 @@ function QuestionCard() {
     //Refactor this
     function handleNextQuestion(){
         if(questionsData.length > questionObject.id){
-            console.log(questionsData.length)
             setQuestionID(questionID + 1)
+            if(answerIsRevealed){
+                setAnswerIsRevealed(!answerIsRevealed)
+            }
         }else if(questionsData.length === questionObject.id){
             alert("Bring us to the results page!")
         }
@@ -32,9 +34,9 @@ function QuestionCard() {
     return(
         <>
             <h1>Question {questionObject.id} / {questionsData.length}</h1>
-            <h1>{questionObject.question}</h1>
+            <header className="question">{questionObject.question}</header>
 
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" 
                     onClick={handlePreviousQuestion}>
                         &lt;
             </button>
@@ -43,11 +45,13 @@ function QuestionCard() {
                         Reveal Answer
             </button>
             <button onClick={handleNextQuestion}
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                         &gt;
             </button>
 
-            {answerIsRevealed ? <Answers questionObject={questionObject}/> : ""} 
+            {answerIsRevealed ? <Answers testPerformance={testPerformance} 
+                                         setTestPerformance={setTestPerformance} 
+                                         questionObject={questionObject}/> : ""} 
         </>
     )
 }
