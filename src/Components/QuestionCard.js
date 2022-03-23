@@ -32,16 +32,22 @@ function QuestionCard() {
     return(
         <>
             <h1>Question {questionObject.id} / {questionsData.length}</h1>
-            <p>{questionObject.question}</p>
-            
-            {answerIsRevealed ? <p>{questionObject.answers}</p> : ""} 
+            <h1>{questionObject.question}</h1>
 
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
-                    onClick={handlePreviousQuestion}>Previous</button>
+                    onClick={handlePreviousQuestion}>
+                        &lt;
+            </button>
             <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-                    onClick={handleRevealAnswer}>Reveal Answer</button>
+                    onClick={handleRevealAnswer}>
+                        Reveal Answer
+            </button>
             <button onClick={handleNextQuestion}
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</button>
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        &gt;
+            </button>
+
+            {answerIsRevealed ? <Answers questionObject={questionObject}/> : ""} 
         </>
     )
 }

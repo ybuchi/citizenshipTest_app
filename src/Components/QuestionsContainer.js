@@ -11,11 +11,7 @@ function QuestionsContainer({testPerformance, setTestPerformance}) {
 
     return(
         <>
-        
-        <div className="max-w-sm rounded overflow-hidden shadow-lg place-content-center">
             {questionCard}
-        </div>
-            
         </>
     )
 }
