@@ -2,6 +2,7 @@
   "name": "us-citizenship-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ybuchi.github.io/citizenshipTest_app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
@@ -15,7 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -36,7 +39,9 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
-  },
-  "homepage": "https://ybuchi.github.io/citizenshipTest_app"
+    "autoprefixer": "^10.4.4",
+    "gh-pages": "^3.2.3",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23"
+  }
 }

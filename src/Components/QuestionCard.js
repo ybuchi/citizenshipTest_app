@@ -1,35 +1,47 @@
 import React, { useState } from "react";
 import Answers from "./Answers";
+import questionsData from "./data/questions"
 
-function QuestionCard({question, testPerformance, setTestPerformance}) {
-    console.log("This is a question: ", question);
-    const [isRevealed, setIsRevealed] = useState(false);
+function QuestionCard() {
+    //Set state equal to the question id
+    const [questionID, setQuestionID] = useState(0)
+    const [answerIsRevealed, setAnswerIsRevealed] = useState(false)
+    let questionObject = questionsData[questionID];
 
-    const answerRevealClass = isRevealed ? "answer-revealed" : "answer-hidden";
-    function handleRevealAnswer(){
-        //change the state of the individual question card
-        setIsRevealed(!isRevealed)
+    //Refactor this
+    function handleNextQuestion(){
+        if(questionsData.length > questionObject.id){
+            console.log(questionsData.length)
+            setQuestionID(questionID + 1)
+        }else if(questionsData.length === questionObject.id){
+            alert("Bring us to the results page!")
+        }
     }
+    function handlePreviousQuestion(){
+        if(questionObject.id > 1){
+            setQuestionID(questionID - 1)
+        }else if(questionObject.id === 1){
+            alert("No previous question")
+        }
+    }
+
+    function handleRevealAnswer(){
+        setAnswerIsRevealed(!answerIsRevealed)
+    }
+    
     return(
         <>
-            <div className = "col">
-                <div className="card card-custom">
-                    <header class="card-header card-header-custom" onClick={handleRevealAnswer}>
-                        <p>Question #{question.id}</p> 
-                        <p><strong>{question.question}</strong></p>
-                    </header>
-                    <div class="card-body">
-                        <Answers 
-                            question={question} 
-                            isRevealed={isRevealed} 
-                            className = {answerRevealClass} 
-                            testPerformance = {testPerformance}
-                            setTestPerformance={setTestPerformance}
-                            questionId={question.id}
-                        />
-                    </div>
-                </div>
-            </div>
+            <h1>Question {questionObject.id} / {questionsData.length}</h1>
+            <p>{questionObject.question}</p>
+            
+            {answerIsRevealed ? <p>{questionObject.answers}</p> : ""} 
+
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
+                    onClick={handlePreviousQuestion}>Previous</button>
+            <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={handleRevealAnswer}>Reveal Answer</button>
+            <button onClick={handleNextQuestion}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</button>
         </>
     )
 }

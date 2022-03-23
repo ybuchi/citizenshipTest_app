@@ -1,22 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import QuizStartCard from "./QuizStartCard";
 import QuestionCard from "./QuestionCard";
-import questionsData from "./data/questions"
+
 
 function QuestionsContainer({testPerformance, setTestPerformance}) {
 
-    const questionCard = questionsData.map((question) => <QuestionCard 
-                                                            key={question.id}
-                                                            question={question}
-                                                            testPerformance = {testPerformance}
-                                                            setTestPerformance={setTestPerformance}
-                                                         />)
+    //Create a state that we initializeas "". It will then loop through each question and display it.
+    const [quizStart, setQuizStart] = useState(false);
+    const questionCard = quizStart ? <QuestionCard /> : <QuizStartCard setQuizStart={setQuizStart}/>
 
     return(
         <>
-        <div className = "container">
-            <div className = "row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+        
+        <div className="max-w-sm rounded overflow-hidden shadow-lg place-content-center">
             {questionCard}
-            </div>
         </div>
             
         </>
